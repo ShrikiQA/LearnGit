@@ -8,4 +8,5 @@ try {
     console.log(r);
 } catch (error) {
     console.log("An error occurred:", error.name);
+    console.log("Test");
 }
