@@ -180,3 +180,21 @@ arr1 = [11, 21, 45];
 
 arr1.length = 7;
 console.log(arr1);
+
+// Reverse Method
+
+const names = ['Tom', 'Alex', 'Bob', 'John'];
+
+console.log(names.reverse());
+
+console.log(names);
+
+// Index of ()
+
+const names1 = [15, 13, 1, 1000, 12, 99];
+
+console.log("Sort Order", names1.sort());
+
+
+
+
