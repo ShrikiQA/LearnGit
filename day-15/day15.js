@@ -336,3 +336,65 @@ console.log(arr5.flat(2)); // [0, 1, 2, 3, 4, 5, Array(1)]
 
 const arr6 = [0,1,2,[3,[4,5,[6]]]];
 console.log(arr6.flat(Infinity)); // [0, 1, 2, 3, 4, 5, 6]
+
+// Grouped By Method
+
+const employees = [
+    {name : "Tom", dept : "Engg", Sal : 5000},
+    {name : "Alex", dept : "HR", Sal : 3000},
+    {name : "Ravi", dept : "Engg", Sal : 7000},
+    {name : "John", dept : "Engg", Sal : 1000},
+    {name : "Bob", dept : "sales", Sal : 6000}
+];
+
+const Groupeddept = Object.groupBy(employees, ({dept}) => dept);
+console.log(Groupeddept); // {Engg: Array(3), HR: Array(1), sales: Array(1)}
+
+const Groupedsal = Object.groupBy(employees, ({Sal}) => {
+    return Sal >=5000 ? "more than 5000" : "Less than 5000"
+});
+console.log(Groupedsal); // {more than 5000: Array(3), Less than 5000: Array(2)}
+
+// ToRevrese method
+
+const items = [1,2,3,4];
+
+console.log(items.toReversed()); // [4, 3, 2, 1]
+
+console.log(items); // [1, 2, 3, 4]
+
+// To Sorted method
+
+const months = ['Mar', 'Jan', 'Feb', 'Dec'];
+
+console.log(months.toSorted()); // ['Dec', 'Feb', 'Jan', 'Mar']
+
+console.log(months); // ['Mar', 'Jan', 'Feb', 'Dec']
+
+// To spliced Method
+
+const months1 = ['Jan', 'Mar', 'Apr', 'May'];
+
+console.log(months1.toSpliced(1,0,"Feb")); // ['Jan', 'Feb', 'Mar', 'Apr', 'May']
+
+console.log(months1); // ['Jan', 'Mar', 'Apr', 'May']
+
+// With Method
+
+const numbers1 = [1,2,3,4,5,6];
+
+const newarray = numbers1.with(2, 6);
+
+console.log(newarray); // [1, 2, 6, 4, 5, 6]
+
+console.log(numbers1); // [1, 2, 3, 4, 5, 6]
+
+const newarray1 = numbers1.with(-2, 6);
+
+console.log(newarray1); // [1, 2, 6, 4, 6, 6]
+
+console.log(numbers1); // [1, 2, 3, 4, 5, 6]
+
+const array3 = [1, true, "test", {good : "bad"}, [1,2,3]];
+console.log(array3);
+
