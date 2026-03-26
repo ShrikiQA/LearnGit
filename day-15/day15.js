@@ -398,3 +398,144 @@ console.log(numbers1); // [1, 2, 3, 4, 5, 6]
 const array3 = [1, true, "test", {good : "bad"}, [1,2,3]];
 console.log(array3);
 
+
+// Filter Method
+
+let customer = [
+    {
+       'id' : 1,
+       'F_Name' : 'Abby',
+       'L_Name' : 'Thomas',
+       'Gender' : 'M',
+       'Married' : true,
+       'age' : 32,
+       'Expenses' : 500,
+       'Purchase' : ['Shampoo', 'Toys', 'Book'] 
+    },
+    {
+       'id' : 2,
+       'F_Name' : 'Jerry',
+       'L_Name' : 'Tom',
+       'Gender' : 'M',
+       'Married' : true,
+       'age' : 64,
+       'Expenses' : 100,
+       'Purchase' : ['Stick', 'Blade']
+    },
+    {
+       'id' : 3,
+       'F_Name' : 'Dinna',
+       'L_Name' : 'Cherry',
+       'Gender' : 'F',
+       'Married' : true,
+       'age' : 22,
+       'Expenses' : 1500,
+       'Purchase' : ['Lipstick', 'Bag', 'Nailpolish']
+    },
+    {
+       'id' : 4,
+       'F_Name' : 'Dev',
+       'L_Name' : 'Currain',
+       'Gender' : 'M',
+       'Married' : true,
+       'age' : 82,
+       'Expenses' : 90,
+       'Purchase' : ['Book']
+    },
+    {
+        'id' : 5,
+       'F_Name' : 'Maria',
+       'L_Name' : 'Gomes',
+       'Gender' : 'F',
+       'Married' : false,
+       'age' : 7,
+       'Expenses' : 300,
+       'Purchase' : ['Toys']
+    }
+]
+
+
+const seniorcitizendata = customer.filter((customer) => 
+{
+    return customer.age >=60;
+});
+
+console.log(seniorcitizendata); // {id: 2, F_Name: 'Jerry', L_Name: 'Tom', Gender: 'M', Married: true, …}
+                                // {id: 4, F_Name: 'Dev', L_Name: 'Currain', Gender: 'M', Married: true, …
+
+
+// Map Method // Transform the something based on business logic
+
+
+let customer1 = [
+    {
+       'id' : 1,
+       'F_Name' : 'Abby',
+       'L_Name' : 'Thomas',
+       'Gender' : 'M',
+       'Married' : true,
+       'age' : 32,
+       'Expenses' : 500,
+       'Purchase' : ['Shampoo', 'Toys', 'Book'] 
+    },
+    {
+       'id' : 2,
+       'F_Name' : 'Jerry',
+       'L_Name' : 'Tom',
+       'Gender' : 'M',
+       'Married' : true,
+       'age' : 64,
+       'Expenses' : 100,
+       'Purchase' : ['Stick', 'Blade']
+    },
+    {
+       'id' : 3,
+       'F_Name' : 'Dinna',
+       'L_Name' : 'Cherry',
+       'Gender' : 'F',
+       'Married' : true,
+       'age' : 22,
+       'Expenses' : 1500,
+       'Purchase' : ['Lipstick', 'Bag', 'Nailpolish']
+    },
+    {
+       'id' : 4,
+       'F_Name' : 'Dev',
+       'L_Name' : 'Currain',
+       'Gender' : 'M',
+       'Married' : true,
+       'age' : 82,
+       'Expenses' : 90,
+       'Purchase' : ['Book']
+    },
+    {
+        'id' : 5,
+       'F_Name' : 'Maria',
+       'L_Name' : 'Gomes',
+       'Gender' : 'F',
+       'Married' : false,
+       'age' : 7,
+       'Expenses' : 300,
+       'Purchase' : ['Toys']
+    }
+]
+
+
+const customerFullName = customer1.map((customer1) => {
+    let title = "";
+
+    if (customer1.Gender === 'M') {
+        title = 'Mr.';
+    } else if (customer1.Gender === 'F' && customer1.Married) {
+        title = 'Mrs.';
+    } else {
+        title = 'Ms.';
+    }
+
+    customer1["Full_Name"] = `${title} ${customer1.F_Name} ${customer1.L_Name}`;
+    return customer1;
+});
+
+console.log(customerFullName);
+
+
