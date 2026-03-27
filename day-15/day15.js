@@ -463,79 +463,141 @@ const seniorcitizendata = customer.filter((customer) =>
 console.log(seniorcitizendata); // {id: 2, F_Name: 'Jerry', L_Name: 'Tom', Gender: 'M', Married: true, …}
                                 // {id: 4, F_Name: 'Dev', L_Name: 'Currain', Gender: 'M', Married: true, …
 
-
 // Map Method // Transform the something based on business logic
 
-
-let customer1 = [
-    {
-       'id' : 1,
-       'F_Name' : 'Abby',
-       'L_Name' : 'Thomas',
-       'Gender' : 'M',
-       'Married' : true,
-       'age' : 32,
-       'Expenses' : 500,
-       'Purchase' : ['Shampoo', 'Toys', 'Book'] 
-    },
-    {
-       'id' : 2,
-       'F_Name' : 'Jerry',
-       'L_Name' : 'Tom',
-       'Gender' : 'M',
-       'Married' : true,
-       'age' : 64,
-       'Expenses' : 100,
-       'Purchase' : ['Stick', 'Blade']
-    },
-    {
-       'id' : 3,
-       'F_Name' : 'Dinna',
-       'L_Name' : 'Cherry',
-       'Gender' : 'F',
-       'Married' : true,
-       'age' : 22,
-       'Expenses' : 1500,
-       'Purchase' : ['Lipstick', 'Bag', 'Nailpolish']
-    },
-    {
-       'id' : 4,
-       'F_Name' : 'Dev',
-       'L_Name' : 'Currain',
-       'Gender' : 'M',
-       'Married' : true,
-       'age' : 82,
-       'Expenses' : 90,
-       'Purchase' : ['Book']
-    },
-    {
-        'id' : 5,
-       'F_Name' : 'Maria',
-       'L_Name' : 'Gomes',
-       'Gender' : 'F',
-       'Married' : false,
-       'age' : 7,
-       'Expenses' : 300,
-       'Purchase' : ['Toys']
-    }
-]
-
-
-const customerFullName = customer1.map((customer1) => {
+const customerFullName = customer.map((customer) => {
     let title = "";
 
-    if (customer1.Gender === 'M') {
+    if (customer.Gender === 'M') {
         title = 'Mr.';
-    } else if (customer1.Gender === 'F' && customer1.Married) {
+    } else if (customer.Gender === 'F' && customer.Married) {
         title = 'Mrs.';
     } else {
         title = 'Ms.';
     }
 
-    customer1["Full_Name"] = `${title} ${customer1.F_Name} ${customer1.L_Name}`;
-    return customer1;
+    customer["Full_Name"] = `${title} ${customer.F_Name} ${customer.L_Name}`;
+    return customer;
 });
 
-console.log(customerFullName);
+console.log(customerFullName); // {id: 1, F_Name: 'Abby', L_Name: 'Thomas', Gender: 'M', Married: true, …}
+                               // {id: 2, F_Name: 'Jerry', L_Name: 'Tom', Gender: 'M', Married: true, …}
+                               // {id: 3, F_Name: 'Dinna', L_Name: 'Cherry', Gender: 'F', Married: true, …}
+                               // {id: 4, F_Name: 'Dev', L_Name: 'Currain', Gender: 'M', Married: true, …}
+                               // {id: 5, F_Name: 'Maria', L_Name: 'Gomes', Gender: 'F', Married: false, …}
+
+
+//  Some Method // This method any one condtion is correct it will return true otherwise false
+
+const hasyoungstercustomer = customer.some((customer) => 
+{
+    return customer.age<10;
+})
+console.log(hasyoungstercustomer); // True
+
+const hasyoungstercustomer1 = customer.some((customer) => 
+{
+    return customer.age>90;
+})
+console.log(hasyoungstercustomer1); // False
+
+// Every Method
+// If all condtiton is true it will return true or any one id fail retrun false
+
+const MarriedCustomer = customer.every((customer) => 
+{
+    return customer.Married;
+})
+console.log(MarriedCustomer); // False
+
+// Find Method
+// It matches it will return array otherwise null
+
+const FoundYoungsterCustomer = customer.find((customer) => 
+{
+    return customer.age<10;
+})
+console.log(FoundYoungsterCustomer); // {id: 5, F_Name: 'Maria', L_Name: 'Gomes', Gender: 'F', Married: false, …}
+
+// Find Index Method
+
+const FoundYoungsterCustomerIndex = customer.findIndex((customer) => 
+{
+    return customer.age<10;
+})
+console.log(FoundYoungsterCustomerIndex); // 4
+
+// Find Last method
+
+const FoundlastYoungsterCustomerlast = customer.findLast((customer) => 
+{
+    return customer.age<10;
+})
+console.log(FoundlastYoungsterCustomerlast); // {id: 5, F_Name: 'Maria', L_Name: 'Gomes', Gender: 'F', Married: false, …}
+
+// Find Last Index Method
+
+const FoundYoungsterCustomerlastIndex = customer.findLastIndex((customer) => 
+{
+    return customer.age<10;
+})
+console.log(FoundYoungsterCustomerlastIndex); // 4
+
+//  For Each Loop
+
+const arr = [1,2,3,4,5];
+
+arr.forEach((elem) =>
+{
+    console.log(elem); // 1 2 3 4 5 (LIne by Line)
+})
+
+// Entries Method
+// This method used print the index with values
+
+const arr7= [1,2,3,4]
+
+const arrItr = arr7.entries();
+
+// console.log(arrItr.next().value); // [0, 1]
+// console.log(arrItr.next().value); // [1, 2]
+
+// for loop
+
+for(const [ Index, element] of arrItr)
+{
+    console.log(Index, element); //0,1  1, 2  2, 3  3, 4
+}
+
+//  Values Method
+//  This method used print the only values
+
+const arr8= [1,2,3,4]
+
+const arrItr1 = arr8.values();
+
+// console.log(arrItr1.next().value); // [1]
+// console.log(arrItr1.next().value); // [2]
+
+// for loop
+
+for(const Value of arrItr1)
+{
+    console.log(Value); //1  2  3  4
+}
+
+// Flatmap Method
+
+const arr9= [1,2,3,4]
+
+console.log("Simple Map", arr9.map(item => item*2)); // [2, 4, 6, 8]
+console.log("Simple Map", arr9.flatMap(item => item*2)); // [2, 4, 6, 8]
+
+console.log("Simple Map", arr9.map(item => [item*2])); // [[2], [4], [6], [8]]
+console.log("Simple flatMap", arr9.flatMap(item => [item*2])); // [2, 4, 6, 8]
+
+console.log("Simple Map", arr9.map(item => [[item*2]])); // [[[2]], [[4]],[[6]],[[8]]]
+console.log("Simple flatMap", arr9.flatMap(item => [[item*2]])); // [[2], [4], [6], [8]]
+
 
 
