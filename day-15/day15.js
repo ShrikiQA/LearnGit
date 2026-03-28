@@ -598,6 +598,3 @@ console.log("Simple flatMap", arr9.flatMap(item => [item*2])); // [2, 4, 6, 8]
 
 console.log("Simple Map", arr9.map(item => [[item*2]])); // [[[2]], [[4]],[[6]],[[8]]]
 console.log("Simple flatMap", arr9.flatMap(item => [[item*2]])); // [[2], [4], [6], [8]]
-
-
-
