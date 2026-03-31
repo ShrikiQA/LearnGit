@@ -34,3 +34,10 @@ const arr5 = ["B", "C", "D"];
 arr5.push("E");// End
 arr5.unshift("A"); // Front
 console.log(arr5); // ['A', 'B', 'C', 'D', 'E']
+
+// 06 Remove an element from the front and the end of an array.
+
+const arr6 = ['A', 'B', 'C', 'D', 'E'];
+arr6.pop("A"); // Front
+arr6.shift("E"); // End
+console.log(arr6); // 
