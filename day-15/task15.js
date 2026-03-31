@@ -40,4 +40,6 @@ console.log(arr5); // ['A', 'B', 'C', 'D', 'E']
 const arr6 = ['A', 'B', 'C', 'D', 'E'];
 arr6.pop("A"); // Front
 arr6.shift("E"); // End
-console.log(arr6); // 
+console.log(arr6); // ['B', 'C', 'D']
+
+//07 
